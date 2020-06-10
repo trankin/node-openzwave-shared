@@ -9,7 +9,7 @@ jobs:
 
     strategy:
       matrix:
-        node-version: [11.x, 12.x]
+        node-version: [11.x]
 
     steps:
     - uses: actions/checkout@v2
@@ -17,5 +17,5 @@ jobs:
       uses: actions/setup-node@v1
       with:
         node-version: ${{ matrix.node-version }}
-    - run: npm install
+    - run: npm config set msvs_version 2015 && npm install
 
